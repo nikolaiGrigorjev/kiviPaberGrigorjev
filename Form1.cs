@@ -12,17 +12,20 @@ namespace kiviPaberGrigorjev
 {
     public partial class Form1 : Form
     {
+        static Button btn1;
+        static PictureBox pct1, pct2;
+        static RadioButton rd1, rd2, rd3;
+        static string[] pictures = { "kamen.png", "bumaga.jpg", "noz.jpg" };
+        static int ravno;
+
+        static Random rnd = new Random();
+
         public Form1()
         {
-            Button btn1;
-            PictureBox pct1,pct2;
-            RadioButton rd1, rd2, rd3;
 
-            Random rnd = new Random();
-            int a = rnd.Next(0, 3);
-            string[] pictures = { "kamen.jpg", "bumaga.jpg", "noz.jpg" };
+            
 
-            this.Height = 1500;
+            this.Height = 600;
             this.Width = 1250;
             this.Text = "Kivi Paber Käärid";
 
@@ -35,20 +38,20 @@ namespace kiviPaberGrigorjev
 
             rd1 = new RadioButton();
             rd1.Text = "Kamen";
-            rd1.Location = new Point(500, 600);
+            rd1.Location = new Point(500, 400);
             rd1.Height = 50;
             rd1.Width = 150;
-            rd1.Click
+            rd1.Click += Rd1_Click;
 
             rd2 = new RadioButton();
             rd2.Text = "Noz";
-            rd2.Location = new Point(400, 600);
+            rd2.Location = new Point(400, 400);
             rd2.Height = 50;
             rd2.Width = 150;
 
             rd3 = new RadioButton();
             rd3.Text = "Bumaga";
-            rd3.Location = new Point(300, 600);
+            rd3.Location = new Point(300, 400);
             rd3.Height = 50;
             rd3.Width = 150;
 
@@ -56,16 +59,17 @@ namespace kiviPaberGrigorjev
 
             pct1 = new PictureBox();
             pct1.Location = new Point(800, 50);
-            pct1.Height = 450;
-            pct1.Width = 450;
+            pct1.Height = 200;
+            pct1.Width = 200;
             pct1.Image = Image.FromFile(@"..\..\Pictures\vopros1.jpg");
+            pct1.SizeMode = PictureBoxSizeMode.StretchImage;
 
             pct2 = new PictureBox();
             pct2.Location = new Point(150, 50);
-            pct2.Height = 450;
-            pct2.Width = 450;
+            pct2.Height = 200;
+            pct2.Width = 200;
             pct2.Image = Image.FromFile(@"..\..\Pictures\vopros1.jpg");
-
+            pct2.SizeMode = PictureBoxSizeMode.StretchImage;
 
             this.Controls.Add(btn1);
 
@@ -78,11 +82,18 @@ namespace kiviPaberGrigorjev
 
         }
 
+        private void Rd1_Click(object sender, EventArgs e)
+        {
+            pct2.Image = Image.FromFile(@"../../Pictures/" + pictures[0]);
+            ravno = 0;
+
+        }
+
         private void Btn1_Click(object sender, EventArgs e)
         {
-          
-
-
+            int a = rnd.Next(0, 3);
+            pct1.Image = Image.FromFile(@"../../Pictures/" + pictures[a]);
+            Win();
         }
     }
 }
