@@ -12,6 +12,7 @@ namespace kiviPaberGrigorjev
 {
     public partial class Form1 : Form
     {
+        
         static Button btn1,btn2;
         static PictureBox pct1, pct2;
         static RadioButton rd1, rd2, rd3;
@@ -30,11 +31,13 @@ namespace kiviPaberGrigorjev
             this.Height = 600;
             this.Width = 1250;
             this.Text = "Kivi Paber Käärid";
-            this.BackColor = Color.Aquamarine;
+            this.BackColor = Color.MidnightBlue;
 
             btn1 = new Button();
             btn1.Text = "Начать";
             btn1.Location = new Point(555, 10);
+            btn1.ForeColor = Color.Red;
+            btn1.BackColor = Color.Black;
             btn1.Height = 50;
             btn1.Width = 150;
             btn1.Click += Btn1_Click;
@@ -44,26 +47,34 @@ namespace kiviPaberGrigorjev
             btn2.Text = "Рестарт";
             btn2.Location = new Point(555, 100);
             btn2.Height = 50;
+            btn2.ForeColor = Color.Yellow;
+            btn2.BackColor = Color.Black;
             btn2.Width = 150;
             btn2.Click += Btn2_Click; 
 
             rd1 = new RadioButton();
             rd1.Text = "Камень";
-            rd1.Location = new Point(500, 400);
+            rd1.Location = new Point(320, 400);
+            rd1.ForeColor = Color.Red;
+            rd1.BackColor = Color.Black;
             rd1.Height = 50;
             rd1.Width = 150;
             rd1.Click += Rd1_Click;
 
             rd2 = new RadioButton();
             rd2.Text = "Бумага";
-            rd2.Location = new Point(400, 400);
+            rd2.ForeColor = Color.Red;
+            rd2.BackColor = Color.Black;
+            rd2.Location = new Point(160, 400);
             rd2.Height = 50;
             rd2.Width = 150;
             rd2.Click += Rd2_Click;
 
             rd3 = new RadioButton();
             rd3.Text = "Ножницы";
-            rd3.Location = new Point(300, 400);
+            rd3.Location = new Point(0, 400);
+            rd3.ForeColor = Color.Red;
+            rd3.BackColor = Color.Black;
             rd3.Height = 50;
             rd3.Width = 150;
             rd3.Click += Rd3_Click;
